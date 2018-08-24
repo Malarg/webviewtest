@@ -33,8 +33,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val code = loadResource(R.raw.webview)
-
         webView.settings.javaScriptEnabled = true
         webView.settings.allowFileAccess = true
         webView.settings.allowContentAccess = true
@@ -48,13 +46,13 @@ class MainActivity : AppCompatActivity() {
                 webView.evaluateJavascript("retft();") {print(it.toString())}
             }
 
-//            override fun shouldInterceptRequest(view: WebView?, request: WebResourceRequest?): WebResourceResponse? {
-//                if (request?.method.equals("OPTIONS")) {
-//                    return OptionsAllowResponse.build()
-//                }
-//
-//                return null
-//            }
+            override fun shouldInterceptRequest(view: WebView?, request: WebResourceRequest?): WebResourceResponse? {
+                if (request?.method.equals("OPTIONS")) {
+                    return OptionsAllowResponse.build()
+                }
+
+                return null
+            }
         }
         webView.webChromeClient = WebChromeClient()
         webView.loadUrl("file:///android_asset/webview.html")

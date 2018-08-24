@@ -18,23 +18,31 @@
       body {
         text-align:center;
       }
+
         </style>
+        <script src="./bridge.mjs" type="module"/>
     </head>
     <body>
         <h3>WebView</h3>
     </body>
     <script type="text/javascript">
-        var xhr = new XMLHttpRequest();
+        /* var xhr = new XMLHttpRequest();
         xhr.onload = e => {
             let blob = xhr.response;
             blob.type = 'application/javascript'; // force the MIME
+
+            let moduleScript = document.createElement('script');
             moduleScript.src = URL.createObjectURL(blob);
+            moduleScript.type = 'module';
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            document.body.appendChild(moduleScript);
         };
         xhr.open('get', "bridge.js");
         xhr.responseType = 'blob';
-        xhr.send();
+        xhr.send(); */
 
         function retft() {
+            const addft = window["addft"];
             test.mult(addft());
         };
     </script>

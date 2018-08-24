@@ -1,5 +1,3 @@
-
-
 import {multiple} from "./main.js";
 
 function addft() {
