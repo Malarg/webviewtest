@@ -12,20 +12,19 @@
   -->
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <style>
       body {
         text-align:center;
       }
 
         </style>
-        <script src="./bridge.mjs" type="module"/>
-    </head>
-    <body>
-        <h3>WebView</h3>
-    </body>
-    <script type="text/javascript">
+    <!-- <script src="http://project.gravity-group.ru/android_js/bridge.js" type="module"></script> -->
+</head>
+<body>
+<h3>WebView</h3>
+<script type="text/javascript">
         /* var xhr = new XMLHttpRequest();
         xhr.onload = e => {
             let blob = xhr.response;
@@ -42,8 +41,26 @@
         xhr.send(); */
 
         function retft() {
-            const addft = window["addft"];
+            // const addft = window["addft"];
+            // test.mult(addft());
+            addft();
+        };
+
+        window.onload = function() {
+    	    // alert("!!!");
+    	    // retft();
+    	}
+    </script>
+<script type="module">
+	import {addft} from "http://project.gravity-group.ru/android_js/bridge.js";
+
+	function retft() {
             test.mult(addft());
         };
+
+	window.onload = function() {
+	    retft();
+	}
     </script>
+</body>
 </html>
